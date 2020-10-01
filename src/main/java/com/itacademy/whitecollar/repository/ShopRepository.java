@@ -21,17 +21,24 @@ public class ShopRepository implements IShopRepository{
     }
 
     @Override
+    @Transactional
     public void create(ShopResponseDto shop) {
-
+        if(shop.getId() != null && shop.getId() > 0){
+            em.merge((shop));
+        } else{
+            em.persist(shop);
+        }
     }
 
     @Override
+    @Transactional
     public ShopResponseDto findOne(Long id) {
-        return null;
+        return em.find(ShopResponseDto.class, id);
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
-
+        em.remove(findOne(id));
     }
 }

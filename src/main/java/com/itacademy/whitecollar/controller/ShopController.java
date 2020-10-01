@@ -1,13 +1,13 @@
 package com.itacademy.whitecollar.controller;
 
+import com.itacademy.whitecollar.dto.PictureResponseDto;
 import com.itacademy.whitecollar.dto.ShopResponseDto;
 import com.itacademy.whitecollar.repository.IShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +22,18 @@ public class ShopController {
     @ResponseBody
     public List<ShopResponseDto> getAllShops() throws Exception{
         return iShopRepository.findAll();
+    }
+
+    @PostMapping("/shops")
+    public ResponseEntity<ShopResponseDto> save(@RequestBody ShopResponseDto shop) {
+        iShopRepository.create(shop);
+        return new ResponseEntity<>(shop, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/shops/{id}")
+    public ResponseEntity<ShopResponseDto> delete(@PathVariable(value = "id") Long id) {
+        ShopResponseDto shop = iShopRepository.findOne(id);
+        iShopRepository.delete(id);
+        return new ResponseEntity<>(shop, HttpStatus.OK);
     }
 }
