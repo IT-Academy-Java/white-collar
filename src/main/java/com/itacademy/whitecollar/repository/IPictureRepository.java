@@ -8,7 +8,13 @@ import java.util.List;
 @Component
 public interface IPictureRepository {
 
-    // List all pictures
     public List<PictureResponseDto> findAll();
 
+    public void create(PictureResponseDto picture);
+
+    public PictureResponseDto findOne(Long id);
+
+    public List<PictureResponseDto> findByJob(String job);
+
+    public void delete(Long id);
 }
