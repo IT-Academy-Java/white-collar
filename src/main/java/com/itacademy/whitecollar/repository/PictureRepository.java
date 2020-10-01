@@ -1,10 +1,8 @@
 package com.itacademy.whitecollar.repository;
 
 import com.itacademy.whitecollar.dto.PictureResponseDto;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,11 +34,6 @@ public class PictureRepository implements IPictureRepository {
     @Transactional
     public PictureResponseDto findOne(Long id) {
         return em.find(PictureResponseDto.class, id);
-    }
-
-    @Override
-    public List<PictureResponseDto> findByJob(String job) {
-        return null;
     }
 
     @Override

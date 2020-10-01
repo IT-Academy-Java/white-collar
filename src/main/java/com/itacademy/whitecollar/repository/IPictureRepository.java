@@ -14,7 +14,5 @@ public interface IPictureRepository {
 
     public PictureResponseDto findOne(Long id);
 
-    public List<PictureResponseDto> findByJob(String job);
-
     public void delete(Long id);
 }

@@ -9,9 +9,9 @@ import javax.persistence.*;
 @Table(name="shops")
 public class ShopResponseDto {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    private int maxCapacity;
+    private Long max_capacity;
 }
