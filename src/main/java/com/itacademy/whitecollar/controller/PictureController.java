@@ -29,6 +29,29 @@ public class PictureController {
         return new ResponseEntity<>(picture, HttpStatus.OK);
     }
 
+    /**@PostMapping("/shops/{id}/pictures")
+    public ResponseEntity<PictureResponseDto> addPicture(
+            @PathVariable(value = "id") Long id,
+            @RequestBody PictureResponseDto picture
+    ) {
+        iPictureRepository.create(picture);
+        return new ResponseEntity<>(picture, HttpStatus.OK);
+    }*/
+/*
+    @GetMapping("/shops/{id}/pictures")
+    public List < PictureResponseDto > getPicturesByShop(@PathVariable(value = "shopId") Long id) {
+        return iPictureRepository.findByInstructorId(id);
+    }*/
+
+    @PostMapping("/shops/{id}/pictures")
+    public ResponseEntity<PictureResponseDto> addPicture(
+            @PathVariable(value = "id") Long id,
+            @RequestBody PictureResponseDto picture
+    ) {
+        //iPictureRepository.create(picture);
+        return new ResponseEntity<>(picture, HttpStatus.OK);
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<PictureResponseDto> delete(@PathVariable(value = "id") Long id) {
         PictureResponseDto picture = iPictureRepository.findOne(id);

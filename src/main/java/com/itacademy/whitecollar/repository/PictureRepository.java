@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class PictureRepository implements IPictureRepository {
@@ -41,5 +42,16 @@ public class PictureRepository implements IPictureRepository {
     public void delete(Long id) {
         em.remove(findOne(id));
     }
-}
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<PictureResponseDto> findByShopId(Long shopId) {
+        return null;
+    }
+
+    @Override
+    public Optional<PictureResponseDto> findByIdAndShopId(Long id, Long shopId) {
+        return Optional.empty();
+    }
+
+}

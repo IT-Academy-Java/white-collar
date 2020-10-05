@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name="pictures")
 public class PictureResponseDto{
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String author_name;
@@ -21,4 +21,11 @@ public class PictureResponseDto{
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date entry_date;
+
+    //@ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private ShopResponseDto shops;
+
 }
+
