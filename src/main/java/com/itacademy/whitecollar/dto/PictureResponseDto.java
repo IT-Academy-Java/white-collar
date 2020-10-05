@@ -1,5 +1,7 @@
 package com.itacademy.whitecollar.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,10 +24,7 @@ public class PictureResponseDto{
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date entry_date;
 
-    //@ManyToOne(cascade = CascadeType.ALL)
-    @ManyToOne
-    @JoinColumn(name = "shop_id")
-    private ShopResponseDto shops;
+    private Long shop_id;
 
 }
 
