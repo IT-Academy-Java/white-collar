@@ -23,7 +23,8 @@ public class PictureRepository implements IPictureRepository {
 
     @Override
     @Transactional
-    public void create(PictureResponseDto picture) {
+    public void create(PictureResponseDto picture, Long shopId) {
+        picture.setShop_id(shopId);
         if(picture.getId() != null && picture.getId() > 0){
             em.merge((picture));
         } else{

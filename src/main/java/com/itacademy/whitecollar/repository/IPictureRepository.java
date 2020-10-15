@@ -11,7 +11,7 @@ public interface IPictureRepository {
 
     public List<PictureResponseDto> findAll();
 
-    public void create(PictureResponseDto picture);
+    public void create(PictureResponseDto picture, Long shopId);
 
     public PictureResponseDto findOne(Long id);
 
