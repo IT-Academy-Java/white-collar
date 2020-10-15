@@ -1,8 +1,6 @@
 package com.itacademy.whitecollar.repository;
 
 import com.itacademy.whitecollar.dto.PictureResponseDto;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,14 +17,8 @@ public interface IPictureRepository {
 
     public void delete(Long id);
 
-   // @Modifying
-   // @Query("delete from PictureResponseDto p where p.shop_id=:shop_id")
-    //public void deleteByShopId(Long shop_id);
-
-    //@Query("delete from PictureResponseDto p where p.shop_id=:shop_id")
     public List<PictureResponseDto> deleteByShopId(Long shop_id);
 
     public List<PictureResponseDto> findByShopId(Long shopId);
 
-    public Optional<PictureResponseDto> findByIdAndShopId(Long id, Long shopId);
 }

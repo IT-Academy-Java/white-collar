@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class PictureRepository implements IPictureRepository {
@@ -58,11 +57,6 @@ public class PictureRepository implements IPictureRepository {
     @Transactional(readOnly = true)
     public List<PictureResponseDto> findByShopId(Long shopId) {
         return em.createQuery("from PictureResponseDto p where p.shop_id =:custShopId").setParameter("custShopId", shopId).getResultList();
-    }
-
-    @Override
-    public Optional<PictureResponseDto> findByIdAndShopId(Long id, Long shopId) {
-        return Optional.empty();
     }
 
 }

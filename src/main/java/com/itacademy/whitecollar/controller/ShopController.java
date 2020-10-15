@@ -1,6 +1,5 @@
 package com.itacademy.whitecollar.controller;
 
-import com.itacademy.whitecollar.dto.PictureResponseDto;
 import com.itacademy.whitecollar.dto.ShopResponseDto;
 import com.itacademy.whitecollar.repository.IShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
