@@ -12,6 +12,7 @@ import java.util.List;
 
 @Controller
 @CrossOrigin(origins = "*", methods= { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE })
+@RequestMapping("/shops")
 public class PictureController {
 
     @Autowired
@@ -23,13 +24,13 @@ public class PictureController {
         return iPictureRepository.findAll();
     }
 
-    @GetMapping("/shops/{id}/pictures")
+    @GetMapping("/{id}/pictures")
     @ResponseBody
     public List<PictureResponseDto> getPicturesByShop(@PathVariable(value = "id") Long id) throws Exception{
         return iPictureRepository.findByShopId(id);
     }
 
-    @PostMapping("/shops/{id}/pictures")
+    @PostMapping("/{id}/pictures")
     public ResponseEntity<PictureResponseDto> addPicture(
             @PathVariable(value = "id") Long id,
             @RequestBody PictureResponseDto picture
@@ -38,14 +39,14 @@ public class PictureController {
         return new ResponseEntity<>(picture, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/pictures/{id}")
     public ResponseEntity<PictureResponseDto> delete(@PathVariable(value = "id") Long id) {
         PictureResponseDto picture = iPictureRepository.findOne(id);
         iPictureRepository.delete(id);
         return new ResponseEntity<>(picture, HttpStatus.OK);
     }
 
-    @DeleteMapping("/shops/{id}/pictures")
+    @DeleteMapping("/{id}/pictures")
     public ResponseEntity<PictureResponseDto> deletePicturesByShop(@PathVariable(value = "id") Long id) {
         PictureResponseDto picture = iPictureRepository.findOne(id);
         iPictureRepository.deleteByShopId(id);

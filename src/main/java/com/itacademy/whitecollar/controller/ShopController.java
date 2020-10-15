@@ -12,24 +12,25 @@ import java.util.List;
 
 @Controller
 @CrossOrigin(origins = "*", methods= { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE })
+@RequestMapping("/shops")
 public class ShopController {
 
     @Autowired
     private IShopRepository iShopRepository;
 
-    @GetMapping("/shops")
+    @GetMapping("/")
     @ResponseBody
     public List<ShopResponseDto> getAllShops() throws Exception{
         return iShopRepository.findAll();
     }
 
-    @PostMapping("/shops")
+    @PostMapping("/")
     public ResponseEntity<ShopResponseDto> save(@RequestBody ShopResponseDto shop) {
         iShopRepository.create(shop);
         return new ResponseEntity<>(shop, HttpStatus.OK);
     }
 
-    @DeleteMapping("/shops/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<ShopResponseDto> delete(@PathVariable(value = "id") Long id) {
         ShopResponseDto shop = iShopRepository.findOne(id);
         iShopRepository.delete(id);
