@@ -1,6 +1,6 @@
 # WHITE COLLAR 
 
-## Exercici Botiga de Quadres
+## Botiga de Quadres
 
 ### Objectius
 - Aprendre a utilitzar Spring Data / JPA per a accés a diferents orígens de
