@@ -45,6 +45,16 @@ public class PictureRepository implements IPictureRepository {
     }
 
     @Override
+    @Transactional
+    public List<PictureResponseDto> deleteByShopId(Long shopId) {
+        List<PictureResponseDto> pictures = findByShopId(shopId);
+        for(PictureResponseDto picture: pictures){
+            em.remove(findOne(picture.getId()));
+        }
+        return pictures;
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public List<PictureResponseDto> findByShopId(Long shopId) {
         return em.createQuery("from PictureResponseDto p where p.shop_id =:custShopId").setParameter("custShopId", shopId).getResultList();

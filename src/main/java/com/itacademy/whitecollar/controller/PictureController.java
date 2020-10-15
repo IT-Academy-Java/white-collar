@@ -44,5 +44,12 @@ public class PictureController {
         iPictureRepository.delete(id);
         return new ResponseEntity<>(picture, HttpStatus.OK);
     }
+
+    @DeleteMapping("/shops/{id}/pictures")
+    public ResponseEntity<PictureResponseDto> deletePicturesByShop(@PathVariable(value = "id") Long id) {
+        PictureResponseDto picture = iPictureRepository.findOne(id);
+        iPictureRepository.deleteByShopId(id);
+        return new ResponseEntity<>(picture, HttpStatus.OK);
+    }
 }
 
