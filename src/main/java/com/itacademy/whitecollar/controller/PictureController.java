@@ -23,6 +23,12 @@ public class PictureController {
         return iPictureRepository.findAll();
     }
 
+    @GetMapping("/shops/{id}/pictures")
+    @ResponseBody
+    public List<PictureResponseDto> getPicturesByShop(@PathVariable(value = "id") Long id) throws Exception{
+        return iPictureRepository.findByShopId(id);
+    }
+
     @PostMapping("/shops/{id}/pictures")
     public ResponseEntity<PictureResponseDto> addPicture(
             @PathVariable(value = "id") Long id,
