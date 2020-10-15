@@ -47,7 +47,7 @@ public class PictureRepository implements IPictureRepository {
     @Override
     @Transactional(readOnly = true)
     public List<PictureResponseDto> findByShopId(Long shopId) {
-        return null;
+        return em.createQuery("from PictureResponseDto p where p.shop_id =:custShopId").setParameter("custShopId", shopId).getResultList();
     }
 
     @Override
