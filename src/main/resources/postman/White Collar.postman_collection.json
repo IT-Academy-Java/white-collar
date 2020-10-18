@@ -6,6 +6,35 @@
 	},
 	"item": [
 		{
+			"name": "Create shop",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Chuli Shop\",\n\"max_capacity\": 25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/shops/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "List shops",
 			"request": {
 				"method": "GET",
@@ -26,13 +55,13 @@
 			"response": []
 		},
 		{
-			"name": "Create shop",
+			"name": "Create a picture",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"name\": \"My favorit Coffe Shop\",\n\"max_capacity\": 20\n}",
+					"raw": "{\n\"author_name\": \"Vincent van Gogh\",\n\"picture_name\": \"cosha pasha\",\n\"price\": 4500,\n\"entry_date\": \"2020-07-09\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,26 +69,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/shops",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"shops"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Shop by id",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/shops/3",
+					"raw": "http://localhost:8080/shops/8/pictures/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -67,27 +77,9 @@
 					"port": "8080",
 					"path": [
 						"shops",
-						"3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List all pictures",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/shops/pictures",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"shops",
-						"pictures"
+						"8",
+						"pictures",
+						""
 					]
 				}
 			},
@@ -115,21 +107,12 @@
 			"response": []
 		},
 		{
-			"name": "Create a picture",
+			"name": "Delete pictures by shop",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"author_name\": \"Vincent van Gogh\",\n\"picture_name\": \"Lalalalalong\",\n\"price\": 4500,\n\"entry_date\": \"2020-07-09\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8080/shops/3/pictures/",
+					"raw": "http://localhost:8080/shops/8/pictures",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -137,7 +120,47 @@
 					"port": "8080",
 					"path": [
 						"shops",
-						"3",
+						"8",
+						"pictures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Shop by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shops/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all pictures",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shops/pictures/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
 						"pictures",
 						""
 					]
@@ -160,7 +183,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/shops/8/pictures/",
+					"raw": "http://localhost:8080/shops/pictures/12",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -168,30 +191,8 @@
 					"port": "8080",
 					"path": [
 						"shops",
-						"8",
 						"pictures",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete pictures by shop",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/shops/3/pictures",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"shops",
-						"3",
-						"pictures"
+						"12"
 					]
 				}
 			},
