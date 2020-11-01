@@ -2,14 +2,16 @@ package com.itacademy.whitecollar.dto;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@Component
 @Data
 @Entity
 @Table(name="pictures")
-public class PictureResponseDto{
+public class PictureResponseDto extends ResponseDto{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
